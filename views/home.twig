@@ -1,176 +1,163 @@
-<!DOCTYPE html>
-<html lang="en"> 
-<!-- การกำหนดภาษาหลักให้กับเว็บไซต์ -->
-<head>
-	<meta charset="utf-8">
-	<title>CMM 19</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+{% extends 'layout/base.twig' %}
+
+{% block stylesheet %}
 	<link rel="stylesheet" type="text/css" href="/assets/home.css">
-</head>
-<body>
-	<header>
-		<div class="has-text-centered">
-			<img src="/assets/images/logo.png" alt="" width="145" height="auto">
-		</div>
-		<nav class="navbar-tabs">
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">INTERVIEW</a>
-			<a href="#" class="navbar-item">PHOTO</a>
-			<a href="#" class="navbar-item">HISTORY</a>
-			<a href="#" class="navbar-item">MEDIA</a>
-			<a href="#" class="navbar-item">REWARD</a>
-			<a href="#" class="navbar-item">LOCATION</a>
-			<a href="#" class="navbar-item">CONTACT</a>
-		</nav> 
-	</header>
+{% endblock %}
+{% block content %}
+	
 	<main>
 		<section class="banner">
 			<div class="highlight">
 				<div class="columns">
 					<div class="column highlight-item">
-					<div class="has-text-centered">
-						<h1>MOMI</h1>
+					<div class="column highlight-item" style="background-image: url({{highlight.url}});">
+					
+						<h1>{{highlight.title}}</h1>
+					
 					</div>
 					</div>
 					</div>
 				</div>
 			<div class="thumbnail">
 				<div class="columns is-marginless">
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
-						I don't care if you're black, white, short, tall, skinny, rich or poor. If you respect me, I'll respect you.
+					{%for item in thumbnail %}
+					<div class="column thumbnail-item is-paddingless" 
+					style="background-image:url({{item.url}});">
+						{{item.title}}
 					</div>
-						
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-						We don't grow when things are easy. We grow when we face challenges.
-					</div>
-						
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-						Don't judge people by their looks.
-					</div>
-						
-					<div class="column thumbnail-item is-paddingless has-text-centered" style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-						When is the best time to tell someone you love him ? Before someone else does.
-					</div>
+					{% endfor %}
 						
 				</div>
 			</div>
 		</section>
-			<section class="section we-present">
-				<div class="container">
-					<div class="columns">
-							<div class="column has-text-left">
-								<a href="#">LASTET</a>
-							</div>
-							<div class="column has-text-centered">
-								<a href="#">WE PRESENT</a>
-							</div>
-							<div class="column has-text-right">
-								<a href="#">SEARCH</a>
-							</div>
-							</div>
-						</div>
 
-					<div class="columns is-multiline">
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-1.jpg" alt="image-1">
-									</figure>	
+		<section class="section we-present">
+			<div class="container">
+				<div class="columns">
+					<div class="column has-text-left">
+						<a href="#">LASTEST</a>
 					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
+				<div class="column has-text-centered">
+					WE PRESENT
+				</div>
+				<div class="column has-text-right">
+					<a href="#">SEARCH</a>
+				</div>
+				</div>
+			</div>
 
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-2.jpg" alt="image-1">
-									</figure>	
-					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
 
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-3.jpg" alt="image-1">
-									</figure>	
+	<div class="columns is-multiline">
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-1.jpg" alt="image-1">
+						</figure>
 					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4"> Tattoo</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
 
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-4.jpg" alt="image-1">
-									</figure>	
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-2.jpg" alt="image-1">
+						</figure>
 					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4">Coffee</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
 
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-5.jpg" alt="image-1">
-									</figure>	
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-3.jpg" alt="image-1">
+						</figure>
 					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4">Canvas</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
 
-						<a href="#" class="column is-one-third">
-							<div class="card">
-								<div class="card-images">
-									<figure class="image is-3by2">
-										<img src="assets/images/home/we-preset/img-6.jpg" alt="image-1">
-									</figure>	
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-4.jpg" alt="image-1">
+						</figure>
 					</div>
-						<div class="card-content">
-						<h5 class="category">Public Space</h5>
-						<h3 class="title is-spaced is-4">Lorem ipsum dolor sit amet.</h3>
-						<h4 class="subtitle is-6">เรื่องมาริษา คาลัว</h4>
-						<p> Earum doloremque eligend</p>
-						</div>
-							</div>
-						</a>
-					</div>
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4">Market</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
 
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-5.jpg" alt="image-1">
+						</figure>
 					</div>
-				</div>	
-			</section> 
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4">Table</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
+
+		<a href="#" class="column is-one-third">
+			<div class="card">
+					<div class="card-image">
+						<figure class="image is-3by2">
+							<img src="/assets/images/home/we-preset/img-6.jpg" alt="image-1">
+						</figure>
+					</div>
+				<div class="card-content">
+					<h5 class="category">Public Space</h5>
+					<h3 class="title is-spaced is-4">Cloth</h3>
+					<h4 class="subtitle is-6">Story : Thanawat</h4>
+					<p>
+						Earum doloremque eligendi.
+					</p>
+				</div>
+			</div>
+		</a>
+	</div>
+
+
+		</section>
 	</main>
-</body>
-</html>
+{% endblock %}
